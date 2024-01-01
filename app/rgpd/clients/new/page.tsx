@@ -6,6 +6,7 @@ import { Gender, MaritalStatus } from "@prisma/client";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 //export const runtime = "edge";
 
@@ -105,6 +106,7 @@ const NewPublicClient = () => {
     try {
       const res = await fetch(`/api/rgpd`, options);
       if (res.ok) {
+        toast.success("Dossier créé avec succès");
         router.push("/rgpd/clients/new/ok");
       }
     } catch (e) {
@@ -114,44 +116,8 @@ const NewPublicClient = () => {
     // setData(data);
   };
 
-  /*   const processRGPD = async (get) => {
-    const signRGPD = {
-      clientId: +params.clientId,
-      checksum: +params.checksumId,
-    };
-
-    const options = {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signRGPD),
-    };
-    //console.log("signRGPD", signRGPD);
-
-    try {
-      const res = await fetch(
-        `/api/rgpd/${params.clientId}/checksum/${params.checksumId}`,
-        options
-      );
-      if (res.ok) setReload(!reload);
-    } catch (e) {
-      return e;
-    }
-
-    // setData(data);
-  }; */
-
   return (
     <div className="w-full mx-auto">
-      {/*       <div className=" flex justify-center text-6xl">
-        <span className="text-third">
-          <FaHouseDamage />
-        </span>
-      </div> */}
-      {/*       <Login session={session} />
-       */}{" "}
       <div className=" rounded-lg p-2 mt-2 bg-primary">
         <Title title="Nouveau client" back={false} size="lg:text-2xl" />
         <p className="text-sm">
@@ -362,23 +328,6 @@ const NewPublicClient = () => {
                   />
                 </div>
               </div>
-              {/*             <div className="flex max-lg:flex-col justify-between place-items-center w-full gap-4 max-lg:gap-0">
-              <div className="w-full  lg:py-2 flex flex-col">
-                <label className="font-semibold m-1">
-                  {" "}
-                  <input
-                    onChange={(e) => {
-                      setErrorMsg("");
-                      setFirstName(e.target.value);
-                    }}
-                    className="text-blue-900 rounded-full p-2 max-lg:p-1 mb-2 border bg-white "
-                    type="checkbox"
-                    value={firstName}
-                  />
-                  RGPD
-                </label>
-              </div>
-            </div> */}
             </div>
 
             {errorMsg && (
@@ -387,16 +336,6 @@ const NewPublicClient = () => {
               </div>
             )}
           </div>
-
-          {/*             {val && (
-              <button
-                type="button"
-                onClick={handleSignOut}
-                className=" text-white bg-red-600 rounded-lg p-2 border"
-              >
-                Se Déconnecter
-              </button>
-            )} */}
 
           <div>
             <div className="w-full mx-auto ">
