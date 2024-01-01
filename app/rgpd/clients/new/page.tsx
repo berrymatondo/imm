@@ -5,7 +5,7 @@ import Title from "@/app/components/Title";
 import { Gender, MaritalStatus } from "@prisma/client";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 //export const runtime = "edge";
 
@@ -57,13 +57,13 @@ const NewPublicClient = () => {
       },
       body: JSON.stringify(newClient),
     };
-    //console.log("newClient", newClient);
+    //   console.log("newClient", newClient);
 
     try {
       const res = await fetch("/api/clients", options);
       const data = await res.json();
 
-      console.log("DATAAAAA", data);
+      //   console.log("DATA", data);
 
       //   return data;
 

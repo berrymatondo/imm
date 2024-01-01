@@ -38,7 +38,7 @@ model Person {
   createAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId Int?
-  username String
+  username String?
   origin String?
   assus Assurance[]
   immos Immo[]

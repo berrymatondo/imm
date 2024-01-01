@@ -37,7 +37,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
 
     const userTmp: any = session?.user;
 
-    /*     console.log("beforrrrrrreeeee", {
+    /*     console.log("AV beforrrrrrreeeee", {
       firstName,
       lastName,
       email,
@@ -45,6 +45,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
       maritalStatus,
       birthdate,
       mobile,
+      origin,
       notes,
     }); */
 
@@ -60,14 +61,14 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
         mobile: mobile,
         address: address,
         origin: origin,
-        // createAt: new Date(),
-        // updatedAt: new Date(),
-        username: userTmp.username ? userTmp.username : "",
-        userId: userTmp.id ? parseInt(userTmp.id) : null,
+        createAt: new Date(),
+        updatedAt: new Date(),
+        username: userTmp?.username ? userTmp.username : "User Technique",
+        userId: userTmp?.id ? parseInt(userTmp.id) : 5,
       },
     });
 
-    // console.log("Apres", user);
+    console.log("Apres", user);
 
     return NextResponse.json({ message: "OK", user }, { status: 201 });
   } catch (error) {
