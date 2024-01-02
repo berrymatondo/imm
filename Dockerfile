@@ -10,10 +10,10 @@
 # Stage 1: install dependencies
 FROM node:18-alpine AS deps
 WORKDIR /app
-COPY package*.json .
+COPY package.json .
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
-RUN npm install
+RUN npm install --loglevel verbose
 
 # Stage 2: build
 FROM node:18-alpine AS builder
