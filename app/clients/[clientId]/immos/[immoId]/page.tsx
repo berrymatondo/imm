@@ -718,11 +718,11 @@ const ClientImmoPage = ({ params }: ClientAssuPageProps) => {
                 Utilisateur:<strong> {immo?.username}</strong>
               </p>
               <p>
-                Création: <strong>{immo?.createAt.toString()}</strong>
+                Création: <strong>{immo?.createAt?.toString()}</strong>
               </p>
               <p>
                 Dernière modification:{" "}
-                <strong>{immo?.updatedAt.toString()}</strong>
+                <strong>{immo?.updatedAt?.toString()}</strong>
               </p>
             </>
           )}

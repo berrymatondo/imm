@@ -32,11 +32,11 @@ model Person {
   maritalstatus MaritalStatus
   birthday DateTime?
   mobile String?
-  email     String?  @unique
+  email     String?
   address String?
   notes String?
-  createAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
   userId Int?
   username String?
   origin String?
@@ -52,8 +52,8 @@ model Assurance {
   comments    String?
   status AssuStatus
   type AssuType
-  createAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
   userId Int?
   username String?
   personId Int
@@ -77,8 +77,8 @@ model Task {
   immoId Int?
   immo Immo? @relation(fields: [immoId], references: [id])
 
-  createAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
   userId Int?
   username String?
   
@@ -86,8 +86,8 @@ model Task {
 
 model Rgpd {
   id Int @id @default(autoincrement())
-  createAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
   personId Int @unique
   signed Boolean @default(false)
   checksum Int
@@ -147,8 +147,8 @@ model Immo {
   autPrt Decimal @db.Decimal(10,2)
   autPrtCo Decimal @db.Decimal(10,2)
 
-  createAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
   userId Int?
   username String?
 

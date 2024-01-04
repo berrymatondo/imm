@@ -5,7 +5,7 @@ export default function Home() {
   redirect("/dashboard");
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Go live
+      Ceci est un test en production ep 5
     </main>
   );
 }

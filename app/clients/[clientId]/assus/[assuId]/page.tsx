@@ -274,11 +274,11 @@ const ClientAssuPage = ({ params }: ClientAssuPageProps) => {
                   Utilisateur:<strong> {assu?.username}</strong>
                 </p>
                 <p>
-                  Création: <strong>{assu?.createAt.toString()}</strong>
+                  Création: <strong>{assu?.createAt?.toString()}</strong>
                 </p>
                 <p>
                   Dernière modification:{" "}
-                  <strong>{assu?.updatedAt.toString()}</strong>
+                  <strong>{assu?.updatedAt?.toString()}</strong>
                 </p>
               </>
             )}

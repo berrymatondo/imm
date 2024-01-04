@@ -1,0 +1,19 @@
+-- AlterTable
+ALTER TABLE "Assurance" ALTER COLUMN "createAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Immo" ALTER COLUMN "createAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Person" ALTER COLUMN "createAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Rgpd" ALTER COLUMN "createAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Task" ALTER COLUMN "createAt" DROP NOT NULL,
+ALTER COLUMN "updatedAt" DROP NOT NULL;
