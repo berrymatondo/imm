@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           {" "}
-          <div className="flex-1 bg-secondary p-5 min-h-screen max-lg:hidden">
+          <div className="flex-1 bg-[#253352] p-5 min-h-screen max-lg:hidden">
             <Sidebar />
           </div>
           <div className="flex-[4_4_0%] md:p-5 flex flex-col justify-between h-screen ">

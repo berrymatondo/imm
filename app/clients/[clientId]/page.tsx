@@ -287,7 +287,7 @@ const DetailsClientPage = ({ params }: ClientDetailsPageProps) => {
                 {"En attente du consentement:"}
                 <Link
                   className="text-yellow-400"
-                  href={`http://localhost:3000/rgpd/${params.clientId}/checksum/${checksum}`}
+                  href={`/rgpd/${params.clientId}/checksum/${checksum}`}
                   target="_blank"
                 >
                   Lien

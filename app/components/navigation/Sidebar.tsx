@@ -8,6 +8,7 @@ import {
   MdHouse,
   MdLogout,
   MdMoney,
+  MdOutlinePhonelinkSetup,
   MdPeople,
   MdPerson,
   MdTask,
@@ -22,6 +23,8 @@ import { GiPayMoney } from "react-icons/gi";
 
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import MyLabel from "../MyLabel";
+import Link from "next/link";
 
 const menuItems = [
   {
@@ -106,6 +109,15 @@ const menuItems = [
           </span>
         ),
       },
+      {
+        title: "Paramètres",
+        path: "/parameters",
+        icon: (
+          <span className="text-purple-400">
+            <MdOutlinePhonelinkSetup size={20} />
+          </span>
+        ),
+      },
     ],
   },
 ];
@@ -136,6 +148,23 @@ const Sidebar = () => {
     <div className="sticky top-10">
       <Connect session={session} />
 
+      <div className="flex flex-col text-md italic mb-4">
+        <MyLabel title="Liens utiles" />
+        <Link
+          href="https://www.demetris.be/simulationpublic/kpLeencapaciteitExpress.html#taal=1"
+          target="_blank"
+          className="mt-2 hover:text-yellow-400 hover: cursor-pointer pl-8"
+        >
+          {"Simulation Capacité d'emprunt"}
+        </Link>
+        <Link
+          href="https://www.demetris.be/simulationpublic/KpwoonkredietSimulatieExpress.html#taal=1"
+          target="_blank"
+          className="mt-4 hover:text-yellow-400 hover: cursor-pointer pl-8"
+        >
+          Simulation Mensualité
+        </Link>
+      </div>
       <ul>
         {menuItems.map((cat: any) => (
           <li key={cat.title}>

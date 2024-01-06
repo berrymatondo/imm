@@ -106,10 +106,9 @@ model Solde {
 }
 
 model Parameter {
-  id Int @id @default(autoincrement())
-  name String?
-  visible Boolean? @default(false)
-  origin String?
+//  id Int @id @default(autoincrement())
+  name String @unique
+  value String?
 }
 
 

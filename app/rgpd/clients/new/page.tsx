@@ -5,7 +5,7 @@ import Title from "@/app/components/Title";
 import { Gender, MaritalStatus } from "@prisma/client";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 //export const runtime = "edge";
@@ -28,11 +28,25 @@ const NewPublicClient = () => {
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [accord, setAccord] = useState(false);
   const [certifie, setCertifie] = useState(false);
+  const [parameter, setParameter] = useState("");
 
   const router = useRouter();
 
   const inputStyle =
     "rounded-lg py-1 px-2 max-lg:p-1 mb-1  bg-secondary outline-0 border border-hov";
+
+  useEffect(() => {
+    const fetchParam = async () => {
+      const res = await fetch(`/api/parameters/ORIGINE`, {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      //console.log("PARAM:  ", data);
+      setParameter(data?.parameter?.value);
+    };
+
+    fetchParam();
+  }, []);
 
   const HandleConfirmer = async (e: any) => {
     e.preventDefault();
@@ -47,7 +61,7 @@ const NewPublicClient = () => {
       birthdate: birthdate,
       mobile: mobile,
       address: address,
-      origin: origin,
+      origin: parameter,
     };
 
     const options = {
@@ -58,7 +72,7 @@ const NewPublicClient = () => {
       },
       body: JSON.stringify(newClient),
     };
-    //   console.log("newClient", newClient);
+    console.log("newClient", newClient);
 
     try {
       const res = await fetch("/api/clients", options);
@@ -302,21 +316,21 @@ const NewPublicClient = () => {
                     <span className="text-red-400">*</span>
                   </p>
                   <input
-                    onChange={(e) => {
+                    /*                     onChange={(e) => {
                       setErrorMsg("");
                       setOrigin(e.target.value);
-                    }}
+                    }} */
                     className={inputStyle}
                     type="text"
-                    value={origin}
-                    required
+                    defaultValue={parameter}
+                    disabled
                   />
                 </div>
               </div>
 
               <div className="flex max-lg:flex-col justify-between place-items-center w-full gap-4 max-lg:gap-0">
                 <div className="w-full  lg:py-1 flex flex-col">
-                  <MyLabel title="Note sur le client" />
+                  <MyLabel title="Notes" />
                   <textarea
                     onChange={(e) => {
                       setErrorMsg("");

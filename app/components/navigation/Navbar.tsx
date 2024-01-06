@@ -31,7 +31,7 @@ const Navbar = () => {
   }; */
 
   return (
-    <div className="flex justify-between items-center p-5 rounded-lg bg-secondary">
+    <div className="flex justify-between items-center p-5 rounded-lg bg-[#253352]">
       <div className="text-third text-2xl font-bold capitalize">
         {" "}
         <div

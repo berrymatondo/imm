@@ -37,7 +37,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
 
     const userTmp: any = session?.user;
 
-    /*     console.log("AV beforrrrrrreeeee", {
+    console.log("AV beforrrrrrreeeee", {
       firstName,
       lastName,
       email,
@@ -47,7 +47,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
       mobile,
       origin,
       notes,
-    }); */
+    });
 
     const user = await prisma.person.create({
       data: {
@@ -72,6 +72,8 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
 
     return NextResponse.json({ message: "OK", user }, { status: 201 });
   } catch (error) {
+    console.log("EROR", error);
+
     return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
 };

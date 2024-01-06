@@ -17,7 +17,7 @@ const Connect = (props: PropsLogin) => {
     <div className="flex items-center gap-2  my-1 rounded-lg">
       {!session ? (
         <span
-          onClick={() => router.push("/login")}
+          onClick={() => router.push("/auth/login")}
           className="flex items-center gap-2 text-teal-400 hover:cursor-pointer hover:bg-[#2e374a] p-5"
         >
           <MdLogin />
